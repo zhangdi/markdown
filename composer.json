@@ -1,0 +1,30 @@
+{
+    "name": "zhangdi/markdown",
+    "description": "",
+    "keywords": [
+    ],
+    "license": "BSD-3-Clause",
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.0.0",
+        "symfony/console": "*",
+        "symfony/finder": "*",
+        "erusev/parsedown": "*"
+    },
+    "require-dev": {
+    },
+    "config": {
+        "process-timeout": 1800
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "src"
+        }
+    }
+}

@@ -1,0 +1,21 @@
+#!/usr/bin/env php
+<?php
+
+require dirname(__DIR__) . '/vendor/autoload.php';
+
+use App\Compile;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+
+$application = new Application('build');
+$application->register('build')
+    ->setCode(function (InputInterface $input, OutputInterface $output) {
+        $compile = new Compile();
+        $compile->compile('markdown.phar');
+
+    })
+    ->setDescription('构建项目')
+    ->getApplication()
+    ->setDefaultCommand('build', true);
+$application->run();

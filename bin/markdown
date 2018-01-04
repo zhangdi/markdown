@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+/**
+ * Markdown
+ *
+ * @author Di Zhang <zhangdi_me@163.com>
+ */
+
+use App\Commands\HtmlCommand;
+use Symfony\Component\Console\Application;
+
+require(dirname(__DIR__) . '/vendor/autoload.php');
+
+$application = new Application();
+$application->add(new HtmlCommand());
+exit($application->run());
