@@ -25,7 +25,6 @@ class ToHtmlCommand extends Command
 
     protected function configure()
     {
-        $this->themePath = dirname(dirname(__DIR__)) . '/themes';
         $this->setDescription('将 Markdown 格式转换为 HTML 格式')
             ->addArgument('markdown-file', InputArgument::REQUIRED, 'Markdown 文件')
             ->addArgument('html-file', InputArgument::REQUIRED, '转换成功后的 HTML 文件')
