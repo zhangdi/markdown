@@ -6,11 +6,11 @@
  * @author Di Zhang <zhangdi_me@163.com>
  */
 
-use App\Commands\HtmlCommand;
+use App\Commands\ToHtmlCommand;
 use Symfony\Component\Console\Application;
 
 require(dirname(__DIR__) . '/vendor/autoload.php');
 
 $application = new Application();
-$application->add(new HtmlCommand());
+$application->add(new ToHtmlCommand());
 exit($application->run());
