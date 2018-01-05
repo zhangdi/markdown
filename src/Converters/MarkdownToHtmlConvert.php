@@ -8,14 +8,8 @@ class MarkdownToHtmlConvert extends Converter
 {
     const THEME_DEFAULT = 'default';
 
-    public $markdown;
     public $theme = self::THEME_DEFAULT;
     public $pageTitle;
-
-    public function __construct(string $markdown)
-    {
-        $this->markdown = $markdown;
-    }
 
     /**
      * @return string
@@ -43,10 +37,10 @@ class MarkdownToHtmlConvert extends Converter
     /**
      * @inheritdoc
      */
-    public function convert()
+    public function convert($markdown)
     {
         $parsedown = new \Parsedown();
-        $content = $parsedown->parse($this->markdown);
+        $content = $parsedown->parse($markdown);
 
         $template = file_get_contents($this->getThemePath() . '/' . $this->theme . '.html');
         return strtr($template, [

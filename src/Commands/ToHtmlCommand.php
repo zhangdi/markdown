@@ -81,11 +81,11 @@ class ToHtmlCommand extends Command
 
         $output->write('开始转换... ...');
 
-        $converter = new MarkdownToHtmlConvert(file_get_contents($this->markdownFile));
+        $converter = new MarkdownToHtmlConvert();
         $converter->pageTitle = pathinfo($this->htmlFile,PATHINFO_BASENAME);
         $converter->theme = $this->theme;
 
-        $htmlContent = $converter->convert();
+        $htmlContent = $converter->convert(file_get_contents($this->markdownFile));
         $output->writeln('<info>[完成]</info>');
 
         $output->write('开始保存... ...');
