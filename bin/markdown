@@ -6,11 +6,16 @@
  * @author Di Zhang <zhangdi_me@163.com>
  */
 
+require dirname(__DIR__) . '/src/bootstrap.php';
+require(dirname(__DIR__) . '/vendor/autoload.php');
+
 use App\Commands\ToHtmlCommand;
+use App\Commands\ToPdfCommand;
 use Symfony\Component\Console\Application;
 
-require(dirname(__DIR__) . '/vendor/autoload.php');
+//error_reporting(E_ERROR);
 
 $application = new Application();
 $application->add(new ToHtmlCommand());
+$application->add(new ToPdfCommand());
 exit($application->run());

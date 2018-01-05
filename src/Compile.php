@@ -25,11 +25,16 @@ class Compile
             ->ignoreVCS(true)
             ->notName('build')
             ->notName('Compile.php')
-            ->in(__DIR__ . '/..');
+            ->in(dirname(__DIR__))
+            ->exclude('vendor/tecnickcom/tcpdf/fonts/');
 
         foreach ($finder as $file) {
             $this->addFile($phar, $file);
         }
+
+        $phar->addEmptyDir('vendor/tecnickcom/tcpdf/fonts/');
+
+        $phar->addFromString('vendor/tecnickcom/tcpdf/fonts/helvetica.php', file_get_contents(dirname(__DIR__) . '/vendor/tecnickcom/tcpdf/fonts/helvetica.php'));
 
         $this->addAgentBin($phar);
 
